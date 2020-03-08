@@ -1,3 +1,7 @@
+plugins {
+    id("io.gitlab.arturbosch.detekt") version ("1.6.0")
+}
+
 buildscript {
     repositories {
         google()
@@ -21,4 +25,15 @@ allprojects {
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
+}
+
+detekt {
+    config = files("detekt-config.yml")
+    input = files(*subprojects.map { "${it.name}/src" }.toTypedArray())
+    reports { xml { enabled = false } }
+    failFast = false
+}
+
+dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.6.0")
 }
