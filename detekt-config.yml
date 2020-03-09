@@ -517,7 +517,7 @@ style:
   MaxLineLength:
     active: true
     excludes: "**/*Dao.kt"
-    maxLineLength: 100
+    maxLineLength: 120
     excludePackageStatements: true
     excludeImportStatements: true
     excludeCommentStatements: false

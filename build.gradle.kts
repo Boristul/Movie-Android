@@ -27,6 +27,19 @@ tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
 
+subprojects.forEach { module ->
+    module.tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+            @Suppress("SuspiciousCollectionReassignment")
+            freeCompilerArgs += listOf(
+                //"-XXLanguage:+InlineClasses",
+                "-Xnew-inference"
+            )
+        }
+    }
+}
+
 detekt {
     config = files("detekt-config.yml")
     input = files(*subprojects.map { "${it.name}/src" }.toTypedArray())

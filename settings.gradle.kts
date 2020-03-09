@@ -1,2 +1,2 @@
-include(":app", ":core", ":uikit")
+include(":app", ":uikit", ":repository", ":entity")
 rootProject.name = "MovieAndroid"
