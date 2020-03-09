@@ -43,6 +43,12 @@ dependencies {
     implementation(project(":core"))
     // endregion
 
+    // region Navigation
+    val navigationVersion: String by project
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    // endregion
+
     // region androidX
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.2.0")

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MovieAndroid</string>
+
+    <!-- region LoginFragment -->
+    <string name="lf_title">Добро пожаловать!</string>
+    <string name="lf_info">Укажите логин и пароль, которые вы использовали для входа</string>
+    <string name="lf_login">Логин</string>
+    <string name="lf_password">Пароль</string>
+    <string name="lf_login_button_text">Войти</string>
+    <!-- endregion -->
 </resources>
