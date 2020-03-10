@@ -44,9 +44,11 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info">
+        app:layout_constraintTop_toBottomOf="@id/info"
+        tools:viewBindingIgnore="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_login"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,9 +70,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_input_layout"
-        app:layout_constraintVertical_chainStyle="spread_inside">
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:viewBindingIgnore="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_password"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
