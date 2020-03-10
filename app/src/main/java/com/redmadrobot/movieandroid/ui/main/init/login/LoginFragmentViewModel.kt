@@ -13,24 +13,26 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
     override val kodein by kodein()
     private val loginRepository: LoginRepository by instance()
 
+    // Спорно, в таких случаях возможно еще использование LiveData, но в данном ключе пока не имеет большого смысла.
+    // Тем более с учетом того, что на лекциях рассказывалось про минимальное использование LiveData.
     private var login = ""
     private var password = ""
 
-    private val isDataEnteredPrivate = MutableLiveData<Boolean>()
-    val isDataEntered: LiveData<Boolean> get() = isDataEnteredPrivate
+    private val isDataValidPrivate = MutableLiveData<Boolean>()
+    val isDataValid: LiveData<Boolean> get() = isDataValidPrivate
 
     fun updateLogin(login: String) {
         this.login = login
-        updateIsDataEntered()
+        updateIsDataValid()
     }
 
     fun updatePassword(password: String) {
         this.password = password
-        updateIsDataEntered()
+        updateIsDataValid()
     }
 
-    private fun updateIsDataEntered() {
-        isDataEnteredPrivate.value = login.isNotEmpty() && password.isNotEmpty()
+    private fun updateIsDataValid() {
+        isDataValidPrivate.value = login.isNotEmpty() && password.isNotEmpty()
     }
 
     fun login() = loginRepository.login(login, password)

@@ -25,7 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.loginButton.run {
-            viewModel.isDataEntered.observe(viewLifecycleOwner) { isEnabled = it }
+            viewModel.isDataValid.observe(viewLifecycleOwner) { isEnabled = it }
             setOnClickListener { viewModel.login() }
         }
     }
