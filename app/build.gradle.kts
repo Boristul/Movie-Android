@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -41,6 +42,8 @@ dependencies {
     // region Local
     implementation(project(":uikit"))
     implementation(project(":repository"))
+    implementation(project(":core"))
+    implementation(project(":features:authorization"))
     // endregion
 
     // region Navigation
