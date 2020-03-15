@@ -1,14 +1,14 @@
-package com.redmadrobot.movieandroid.ui.main.init.login
+package com.redmadrobot.authorization.login
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.redmadrobot.movieandroid.R
-import com.redmadrobot.movieandroid.databinding.FragmentLoginBinding
+import com.redmadrobot.authorization.R
+import com.redmadrobot.authorization.databinding.FragmentLoginBinding
+import com.redmadrobot.uikit.base.BaseFragment
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : BaseFragment(R.layout.fragment_login) {
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = checkNotNull(_binding)
 

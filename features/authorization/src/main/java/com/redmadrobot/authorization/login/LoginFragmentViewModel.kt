@@ -1,4 +1,4 @@
-package com.redmadrobot.movieandroid.ui.main.init.login
+package com.redmadrobot.authorization.login
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
