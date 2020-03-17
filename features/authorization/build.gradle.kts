@@ -41,7 +41,6 @@ dependencies {
 
     // region Local
     implementation(project(":uikit"))
-    implementation(project(":repository"))
     implementation(project(":core"))
     // endregion
 
@@ -52,10 +51,6 @@ dependencies {
     // endregion
 
     // region Core
-    val kodeinVersion: String by project
-    implementation("org.kodein.di:kodein-di-generic-jvm:$kodeinVersion")
-    implementation("org.kodein.di:kodein-di-framework-android-x:$kodeinVersion")
-
     val daggerVersion: String by project
     implementation("com.google.dagger:dagger:$daggerVersion")
     kapt("com.google.dagger:dagger-compiler:$daggerVersion")

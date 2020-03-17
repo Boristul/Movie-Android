@@ -1,4 +1,4 @@
-package com.redmadrobot.uikit.base
+package com.redmadrobot.core.ui
 
 import android.content.Context
 import android.view.inputmethod.InputMethodManager

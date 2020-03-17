@@ -1,17 +1,14 @@
-package com.redmadrobot.authorization.login
+package com.redmadrobot.authorization.ui.login
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.redmadrobot.repository.login.LoginRepository
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.x.kodein
-import org.kodein.di.generic.instance
+import com.redmadrobot.authorization.domain.usecase.LoginUseCase
+import com.redmadrobot.core.ui.BaseViewModel
+import javax.inject.Inject
 
-class LoginFragmentViewModel(application: Application) : AndroidViewModel(application), KodeinAware {
-    override val kodein by kodein()
-    private val loginRepository: LoginRepository by instance()
+class LoginFragmentViewModel @Inject constructor(
+    private val loginUseCase: LoginUseCase
+) : BaseViewModel() {
 
     // Спорно, в таких случаях возможно еще использование LiveData, но в данном ключе пока не имеет большого смысла.
     // Тем более с учетом того, что на лекциях рассказывалось про минимальное использование LiveData.
@@ -35,5 +32,5 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
         isDataValidPrivate.value = login.isNotEmpty() && password.isNotEmpty()
     }
 
-    fun login() = loginRepository.login(login, password)
+    fun loginButtonClicked() = loginUseCase.login(login, password)
 }

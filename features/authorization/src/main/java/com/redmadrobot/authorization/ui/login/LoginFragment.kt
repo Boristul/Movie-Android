@@ -1,19 +1,36 @@
-package com.redmadrobot.authorization.login
+package com.redmadrobot.authorization.ui.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
 import com.redmadrobot.authorization.R
 import com.redmadrobot.authorization.databinding.FragmentLoginBinding
-import com.redmadrobot.uikit.base.BaseFragment
+import com.redmadrobot.authorization.di.component.LoginComponent
+import com.redmadrobot.core.ui.BaseFragment
+import javax.inject.Inject
+import javax.inject.Provider
 
 class LoginFragment : BaseFragment(R.layout.fragment_login) {
+
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = checkNotNull(_binding)
 
+    @Inject
+    lateinit var viewModelFactory: Provider<LoginFragmentViewModel>
+    private val viewModel by lazy { viewModelFactory.get() }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LoginComponent.Builder
+            .build()
+            .inject(this)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewModel by viewModels<LoginFragmentViewModel>()
+
+        LoginComponent.Builder.build()
+
         _binding = FragmentLoginBinding.bind(view)
 
         binding.editLogin.run {
@@ -26,7 +43,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
         binding.loginButton.run {
             viewModel.isDataValid.observe(viewLifecycleOwner) { isEnabled = it }
-            setOnClickListener { viewModel.login() }
+            setOnClickListener { viewModel.loginButtonClicked() }
         }
     }
 
