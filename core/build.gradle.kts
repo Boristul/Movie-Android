@@ -47,7 +47,7 @@ dependencies {
     // endregion
 
     // region AndroidX
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.core:core-ktx:1.3.1")
     // endregion
 }
